@@ -1,50 +1,57 @@
-# React + TypeScript + Vite
+# React Hangman Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Hangman game built using React, where users try to guess a hidden word before they run out of attempts.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Random word generation from a word list.
+- Visual representation of the Hangman figure.
+- Keyboard interaction to guess letters.
+- Endgame conditions (win/loss detection).
+- Reset game by pressing 'Enter' to start a new word.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/react-hangman.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+## Usage
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Guess the word by pressing the letters on the displayed keyboard or using your physical keyboard.
+- If you guess incorrectly six times, the game ends, and you can restart by pressing 'Enter.'
+- If you guess all the letters correctly, you win and can restart with 'Enter.'
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Components
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **App**: Main component managing game state and logic.
+- **HangmanDrawing**: Displays the Hangman figure, updating with incorrect guesses.
+- **HangmanWord**: Displays the word with correct guesses revealed.
+- **Keyboard**: Interactive on-screen keyboard to guess letters.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## File Structure
+Including:
+- `wordList.json`: A JSON file containing a list of words for the game.
+- `HangmanDrawing.tsx`: Handles drawing the hangman figure.
+- `HangmanWord.tsx`: Displays the word with guessed letters.
+- `Keyboard.tsx`: A virtual keyboard to input guesses.
+
+## Styling
+
+Custom button styles in `Keyboard.module.css`:
+- `.btn`: Base styling for keyboard buttons.
+- `.active`: Styling for correctly guessed letters.
+- `.inactive`: Styling for incorrectly guessed letters.
+
+## License
+
+MIT
