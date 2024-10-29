@@ -2,6 +2,8 @@
 
 A simple Hangman game built using React, where users try to guess a hidden word before they run out of attempts.
 
+Website is available here, https://markydevs.github.io/hang_man/
+
 ## Features
 
 - Random word generation from a word list.
